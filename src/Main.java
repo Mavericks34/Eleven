@@ -1,7 +1,9 @@
+import java.time.LocalDate;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void determineTheYear (int year) {
+    public static void isLeapYear(int year) {
         if (year > 1584) {
             if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
                 System.out.println(year + " Год является високосным");
@@ -11,7 +13,7 @@ public class Main {
         }
     }
 
-    public static void definitionSystem (int clientOS, short clientDeviceYear) {
+    public static void definitionSystem(int clientOS, short clientDeviceYear) {
         if (clientOS == 0 && clientDeviceYear <= 2015) {
             System.out.println("Установите облегчённую версию для IOS по ссылке ...");
         } else if (clientOS == 1 && clientDeviceYear <= 2015) {
@@ -25,7 +27,7 @@ public class Main {
         }
     }
 
-    public static void deliverDay(int deliveryDistance) {
+    public static void calculateDeliveryDays(int deliveryDistance) {
         if (deliveryDistance <= 20) {
             System.out.println("Потребуется 1 день");
         } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
@@ -39,16 +41,16 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Task 1");
-        determineTheYear(2000);
+        isLeapYear(2000);
 
         System.out.println("Task 2");
-        int clientOS = 0;
-        short currentYear = 2026;
+        int clientOS = 1;
+        short currentYear = (short) LocalDate.now().getYear();
         definitionSystem(clientOS, currentYear);
 
         System.out.println("Task 3");
         short deliveryDistance = 95;
-        deliverDay(deliveryDistance);
+        calculateDeliveryDays(deliveryDistance);
 
     }
 }
