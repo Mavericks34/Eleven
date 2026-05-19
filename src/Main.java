@@ -1,29 +1,24 @@
 import java.time.LocalDate;
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void isLeapYear(int year) {
-        if (year > 1584) {
             if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
                 System.out.println(year + " Год является високосным");
             } else {
                 System.out.println(year + " Год не является високосным");
             }
-        }
     }
 
     public static void definitionSystem(int clientOS, short clientDeviceYear) {
-        if (clientOS == 0 && clientDeviceYear <= 2015) {
-            System.out.println("Установите облегчённую версию для IOS по ссылке ...");
-        } else if (clientOS == 1 && clientDeviceYear <= 2015) {
-            System.out.println("Установите облегчённую версию приложения для Android по ссылке ...");
-        } else if (clientDeviceYear > 2015 && clientOS == 0) {
-            System.out.println("Установите приложение для IOS по ссылке");
-        } else if (clientDeviceYear > 2015 && clientOS == 1) {
-            System.out.println("Установите версию приложениядля Android по ссылке");
+        if (clientDeviceYear <= 2015) {
+            System.out.println("Установите облегчённую версию для по ссылке ...");
         } else {
-            System.out.println("Неизвестная ошибка");
+            System.out.println("Установите обычную версию по ссылке ...");
+        } if (clientOS == 0) {
+            System.out.println("Для IOS");
+        } else if (clientOS == 1 ){
+            System.out.println("Для Android");
         }
     }
 
@@ -44,7 +39,7 @@ public class Main {
         isLeapYear(2000);
 
         System.out.println("Task 2");
-        int clientOS = 1;
+        int clientOS = 0;
         short currentYear = (short) LocalDate.now().getYear();
         definitionSystem(clientOS, currentYear);
 
