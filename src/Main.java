@@ -11,19 +11,20 @@ public class Main {
     }
 
     public static void definitionSystem(int clientOS, short clientDeviceYear) {
-        if (clientDeviceYear <= 2015) {
-            System.out.println("Установите облегчённую версию для по ссылке ...");
-        } else {
-            System.out.println("Установите обычную версию по ссылке ...");
-        } if (clientOS == 0) {
-            System.out.println("Для IOS");
-        } else if (clientOS == 1 ){
-            System.out.println("Для Android");
+        if (clientOS == 0 && clientDeviceYear <= 2015) {
+            System.out.println("Установите облегчённую версию по ссылке ... Для IOS");
+        } else if (clientOS == 1 && clientDeviceYear <= 2015) {
+            System.out.println("Установите облегчённую версию по ссылке ...Для Android");
+        } else if (clientOS == 1 && clientDeviceYear > 2015) {
+            System.out.println("Установите обычную версию по ссылке ...Для Android");
+        } else if (clientOS == 0 && clientDeviceYear > 2015){
+            System.out.println("Установите обычную версию по ссылке Для IOS");
         }
     }
 
+
     public static void calculateDeliveryDays(int deliveryDistance) {
-        if (deliveryDistance <= 20) {
+        if (deliveryDistance <= 20 && deliveryDistance > 0) {
             System.out.println("Потребуется 1 день");
         } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
             System.out.println("Потребуется 2 дня");
@@ -39,7 +40,7 @@ public class Main {
         isLeapYear(2000);
 
         System.out.println("Task 2");
-        int clientOS = 0;
+        int clientOS = 1;
         short currentYear = (short) LocalDate.now().getYear();
         definitionSystem(clientOS, currentYear);
 
